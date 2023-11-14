@@ -16,6 +16,7 @@
 		B5B5C6372B035536006E8A88 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5C6352B035536006E8A88 /* MyTableViewCell.swift */; };
 		B5B5C6382B035536006E8A88 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B5C6362B035536006E8A88 /* MyTableViewCell.xib */; };
 		B5B5C63B2B035886006E8A88 /* Poets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5C63A2B035886006E8A88 /* Poets.swift */; };
+		B5B5C63D2B038A39006E8A88 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5C63C2B038A39006E8A88 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B5B5C6352B035536006E8A88 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		B5B5C6362B035536006E8A88 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		B5B5C63A2B035886006E8A88 /* Poets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poets.swift; sourceTree = "<group>"; };
+		B5B5C63C2B038A39006E8A88 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B5C6212B03539B006E8A88 /* ViewController.swift */,
+				B5B5C63C2B038A39006E8A88 /* DetailViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				B5B5C6222B03539B006E8A88 /* ViewController.swift in Sources */,
 				B5B5C6372B035536006E8A88 /* MyTableViewCell.swift in Sources */,
 				B5B5C61E2B03539B006E8A88 /* AppDelegate.swift in Sources */,
+				B5B5C63D2B038A39006E8A88 /* DetailViewController.swift in Sources */,
 				B5B5C6202B03539B006E8A88 /* SceneDelegate.swift in Sources */,
 				B5B5C63B2B035886006E8A88 /* Poets.swift in Sources */,
 			);

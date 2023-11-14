@@ -7,9 +7,15 @@
 
 import UIKit
 
-struct Poets{
-    let fullName: String?
-    let description: String?
-    let image: UIImage?
+class Poets{
+    let name: String
+    let image: UIImage
+    let rowTypes: RowTypes
+    
+    init(name: String, image: UIImage, rowTypes: RowTypes) {
+        self.name = name
+        self.image = image
+        self.rowTypes = rowTypes
+    }
     
 }
