@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  tableView-cell-xib
 //
 //  Created by Soner Demirci on 14.11.2023.
@@ -7,23 +7,11 @@
 
 import UIKit
 
-enum RowTypes {
-    case rasim
-    case nuri
-    case ali
-    case alaeddin
-    case cahit
-    case sezai
-    case erdem
-}
-
-
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     //MARK: - UI Elements
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Properties
-    
     var rowTupleList = [Poets]()
     
     let NAVIGATION_TITLE = "YEDİ GÜZEL ADAM"
@@ -32,51 +20,49 @@ class ViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        rowTupleList = [Poets(name: "RASİM ÖZDENÖREN", image: UIImage(named: "rasim")!, rowTypes: .rasim),
-                        Poets(name: "NURİ PAKDIL", image: UIImage(named: "nuri")!, rowTypes: .nuri),
-                        Poets(name: "ALİ KUTLAY", image: UIImage(named: "ali")!, rowTypes: .ali),
-                        Poets(name: "ALAEDDIN ÖZDENÖREN ", image: UIImage(named: "alaeddin")!, rowTypes: .alaeddin),
-                        Poets(name: "CAHİT ZARİFOĞLU", image: UIImage(named: "cahit")!, rowTypes: .cahit),
-                        Poets(name: "SEZAİ KARAKOÇ", image: UIImage(named: "sezai")!, rowTypes: .sezai),
-                        Poets(name: "ERDEM BEYAZIT", image: UIImage(named: "erdem")!, rowTypes: .erdem)]
-        
-        setTitle()
+        pageData()
         setupUI()
     }
     
     //MARK: -functions
     func setupUI(){
-        
+        setTitle()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .systemGray4
         tableView.register(MyTableViewCell.nib(), forCellReuseIdentifier: MyTableViewCell.identifier)
-        
+    }
+    
+    func pageData(){
+        rowTupleList = [
+            Poets(id: 0, name: "RASİM ÖZDENÖREN", image: UIImage(named: "rasim")!),
+            Poets(id: 1, name: "NURİ PAKDIL", image: UIImage(named: "nuri")!),
+            Poets(id: 2, name: "ALİ KUTLAY", image: UIImage(named: "ali")!),
+            Poets(id: 3, name: "ALAEDDIN ÖZDENÖREN ", image: UIImage(named: "alaeddin")!),
+            Poets(id: 4, name: "CAHİT ZARİFOĞLU", image: UIImage(named: "cahit")!),
+            Poets(id: 5, name: "SEZAİ KARAKOÇ", image: UIImage(named: "sezai")!),
+            Poets(id: 6, name: "ERDEM BEYAZIT", image: UIImage(named: "erdem")!)
+        ]
     }
     
     func setTitle(){
         navigationItem.title = NAVIGATION_TITLE
         navigationItem.backButtonTitle = BACK_BUTTON_TITLE
-        
     }
-    
-    
 }
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         rowTupleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = rowTupleList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
-        
-        cell.nameLbl.text = rowTupleList[indexPath.row].name
-        cell.profileImage.image = rowTupleList[indexPath.row].image
+        cell.nameLbl.text = item.name
+        cell.profileImage.image = item.image
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -84,16 +70,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let selectData = rowTupleList[indexPath.row]
         
-        
-        // Hedef view controller'ı instantiate et
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            // Veriyi set et
             vc.receivedData = selectData
-            
-            // Geçişi gerçekleştir
             navigationController?.pushViewController(vc, animated: true)
         }
         
     }
 }
+
 

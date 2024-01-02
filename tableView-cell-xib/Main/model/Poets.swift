@@ -8,14 +8,13 @@
 import UIKit
 
 class Poets{
+    let id: Int
     let name: String
     let image: UIImage
-    let rowTypes: RowTypes
     
-    init(name: String, image: UIImage, rowTypes: RowTypes) {
+    init(id: Int, name: String, image: UIImage) {
+        self.id = id
         self.name = name
         self.image = image
-        self.rowTypes = rowTypes
     }
-    
 }
